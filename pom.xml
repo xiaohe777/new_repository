@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yjxxt</groupId>
+    <artifactId>webMVC</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <!-- spring web -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>5.2.4.RELEASE</version>
+        </dependency>
+        <!-- spring mvc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.2.4.RELEASE</version>
+        </dependency>
+        <!-- web servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>springmvc</finalName>
+        <plugins>
+            <!-- maven tomcat 插件 -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <uriEncoding>UTF-8</uriEncoding>
+                    <!-- 访问路径 -->
+                    <path>/</path>
+                    <!--
+                        也可以通过命令指定访问端口
+                        mvn tomcat7:run -D maven.tomcat.port=8080
+                    -->
+                    <port>8090</port>
+                    <!-- 是否开启热部署 -->
+                    <contextReloadable>false</contextReloadable>
+                </configuration>
+            </plugin>
+            <!-- 指定Maven编译的JDK版本和编码 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                    <encoding>utf-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
